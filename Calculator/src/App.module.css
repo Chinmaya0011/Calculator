@@ -1,0 +1,91 @@
+/* App.module.css */
+body {
+  background-color: rgba(8, 251, 243, 0.493);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.calculator {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 0px solid #cccccc00;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  /* Set initial background gradient */
+  background: linear-gradient(to right, rgba(157, 207, 56, 0.533), rgba(229, 255, 231, 0.202), rgba(255, 0, 217, 0.488));
+
+  /* Apply animation to move the background colors infinitely */
+  animation: moveBackground 10s linear infinite; /* Adjust the duration as needed */
+}
+
+/* Define keyframes for the continuous background movement */
+@keyframes moveBackground {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.display {
+ 
+  color: rgb(7, 6, 7);
+  background-color: rgba(217, 188, 244, 0.431);
+  width: 90%;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+}
+.buttonsContainer {
+  display: inline-block;
+  margin: 5px;
+}
+
+.button {
+  width: 80px;
+  height: 50px;
+  font-size: 18px;
+  margin: 5px;
+  cursor: pointer;
+  background: linear-gradient(to right, rgba(56, 207, 149, 0.788), rgba(121, 165, 124, 0.727), rgba(0, 0, 255, 0.488));
+
+  color: rgb(255, 255, 255);
+  border: 1px solid #d3eddf00; /* Add a border for 3D effect */
+  border-radius: 10px; /* Increase border-radius for rounded corners */
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s; /* Add transform property for 3D effect */
+  /* 3D effect */
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+    transform: perspective(10px) rotateX(1deg); /* Adjust the rotateX angle for the desired tilt */
+    pointer-events: none;
+    z-index: -1;
+    transition: transform 0.3s; /* Add transform property for 3D effect */
+  }
+
+  /* Hover effect */
+  &:hover {
+    background-color: rgb(160, 69, 87);
+    transform: translateY(-2px); /* Lift the button on hover */
+    box-shadow: 10px 6px 12px 10px rgba(199, 37, 37, 0.2); /* Adjust the hover shadow based on your preference */
+    
+    /* Hover effect for the pseudo-element */
+    &:before {
+      transform: perspective(10px) rotateX(3deg); /* Adjust the rotateX angle for the desired tilt */
+    }
+  }
+}
